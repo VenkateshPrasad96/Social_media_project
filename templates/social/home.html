@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h3>Home</h3>
+    <form action="/post/" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    {{post_form}}
+
+    <button type="submit" class="btn waves-effect">Post</button>
+    </form>
+    {%for post in posts%}
+        <div class="row">
+            <div class="class">
+                {% include 'social/components/post.html' %}
+            </div>
+        </div>
+    {%endfor%}
+</div>
+<ul>
+
+</ul>
+{% endblock %}
